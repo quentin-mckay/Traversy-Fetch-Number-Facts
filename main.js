@@ -3,7 +3,7 @@ const $factDiv = document.querySelector('#fact')  // <div> to add display: block
 const $factText = document.querySelector('#factText')  // <p> to fill with received data
 const $numInput = document.querySelector('#numInput')  // <input> that holds number
 
-
+const cors = 'https://cors-anywhere.herokuapp.com/'  // this is necessary to use http api on GitHub Pages
 const url = 'http://numbersapi.com/'
 
 // react to UI change
@@ -36,7 +36,7 @@ function getFactFetch() {
   let number = $numInput.value  // retrieve UI state
 
   if (number != '') {  // if there's a number
-    fetch(url + number)
+    fetch(cors + url + number)
       .then(response => response.text())  // if working with json data (response => response.json())
       .then(data => {
           $factDiv.style.display = 'block'
